@@ -1,0 +1,64 @@
+@import "compass";
+
+@import "core/fonts";
+@import "core/mixins";
+@import "core/settings";
+
+@import "sections/sprites";
+@import "sections/header";
+@import "sections/navigation";
+@import "sections/breadcrumbs";
+@import "sections/content";
+@import "sections/sidebar";
+@import "sections/important-info";
+@import "sections/footer";
+
+html, body {
+    height: 100%;
+    width: 100%;
+    min-width: $width;
+}
+
+a {
+	color: $text_color;
+	text-decoration: none;
+}
+
+p {
+	margin: 0;
+}
+
+.body {
+	color: $text_color;
+	background-color: $background-color;
+	font-family: $main_font;
+	font-size: 14px;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+li {
+	display: inline-block;
+}
+
+input, button, select {
+	outline: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.h1 {
+	font-family: $main_font;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.h2 {
+	font-size: 16px;
+	font-family: $main_font_semibold;
+}

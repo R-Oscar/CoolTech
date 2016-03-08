@@ -1,0 +1,61 @@
+- var phone_line = ['Флагманы', 'Бюджетная линейка']
+- var filter_colors = ['#ffffff', '#cccccc', '#000000', '#0a3153', '#ff1800', '#fff343', '#fb914a', '#92c37c', '#40a6ff', '#9870ad', '#dc78ad', '#7f401d']
+
+div.sidebar
+	ul.phone-line
+		each item in phone_line
+			li.phone-line__item
+				a(href="#").phone-line__link #{item}
+	ul.filter
+		li.filter__item
+			.filter__item-container
+				h2.h2 
+					a(href="#") Наличие в магазинах
+				- var filter_options = ['Во всех магазинах', 'В ближайшем ко мне магазине']
+				each option in filter_options
+					label.filter__item-label
+						input(type="radio" name="location").filter__item-radio
+						span.filter__item-radio-icon
+						span.filter__item-text #{option}
+		li.filter__item
+			.filter__item-container
+				h2.h2
+					a(href="#") Бренды
+				- var filter_options = ['Lenovo', 'Apple', 'Samsung', 'Nexus', 'Motorola']
+				each option in filter_options
+					label.filter__item-label
+						input(type="checkbox").filter__item-checkbox
+						span.filter__item-checkbox-icon
+						span.filter__item-text #{option}
+				a(href="#").filter__reset Сбросить фильтр
+		li.filter__item
+			.filter__item-container
+				h2.h2
+					a(href="#") Цена
+				.filter__price
+					label.filter__price-label от
+						input(type="text" value="100").filter__price-input
+					label.filter__price-label до
+						input(type="text" value="13 000").filter__price-input
+					.filter__slider
+		li.filter__item
+			.filter__item-container
+				h2.h2
+					a(href="#") Цвет
+				ul.filter__color-list
+					each item in filter_colors
+						if item == "#cccccc"
+							li(class="filter__color filter__color__active" style="background-color: " + item)
+						else
+							li(style="background-color: " + item).filter__color
+		li.filter__item
+			.filter__item-container
+				h2.h2
+					a(href="#") Операционные системы
+				- var filter_options = ['Android', 'iOS', 'Windows Mobile', 'Symbian', 'Custom']
+				each option in filter_options
+					label.filter__item-label
+						input(type="checkbox").filter__item-checkbox
+						span.filter__item-checkbox-icon
+						span.filter__item-text #{option}
+				a(href="#").filter__reset Сбросить фильтр

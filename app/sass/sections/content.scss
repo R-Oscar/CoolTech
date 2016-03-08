@@ -1,0 +1,56 @@
+.content-container {
+	width: $width;
+	margin: 0 auto;
+	@extend %clearfix;
+}
+
+.main-section {
+	float: right;
+	width: 745px;
+}
+
+.main-section-header {
+	background-color: $light-blue;
+	border: 1px solid $border_gray;
+	@extend %clearfix;
+	@include border-radius(4px);
+}
+
+.sort {
+	float: left;
+	padding: 10px 0 14px 23px;
+}
+
+.sort__label {
+	color: $sort_color;
+}
+
+.sort__select {
+	border: 1px solid $border_gray;
+	@include border-radius(3px);
+}
+
+.page-view {
+	float: right;
+}
+
+.page-view__label {
+	margin-right: 18px;
+	display: inline-block;
+	vertical-align: middle;
+	@extend .sort__label;
+}
+
+.page-view__button {
+	display: inline-block;
+	vertical-align: middle;
+	height: 50px;
+	width: 50px;
+	border: 1px solid $border_gray;
+}
+
+.page-view-buttons {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 0;
+}

@@ -1,0 +1,28 @@
+.breadcrumbs-container {
+	width: $width;
+	margin: 0 auto;
+}
+
+.breadcrumbs {
+	margin-top: 27px;
+}
+
+.breadcrumbs-list__item {
+	&:after {
+		margin-left: 4px;
+		content: ">";
+	}
+
+	&:last-child {
+		&:after {
+			content: "";
+		}
+	}
+}
+
+.breadcrumbs-list__link {
+	&:hover {
+		color: $orange;
+		text-decoration: underline;
+	}
+}

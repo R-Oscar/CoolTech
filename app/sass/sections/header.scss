@@ -1,0 +1,133 @@
+.header-top {
+	padding: 25px 0px;
+	border-bottom: 2px solid $border_gray;
+	background-color: $white;
+}
+
+.header-bottom {
+	padding: 30px 0px;
+}
+
+.header-top-container, .header-bottom-container {
+	width: $width;
+	margin: 0 auto;
+	@extend %clearfix;
+}
+
+.socials {
+	float: left;
+}
+
+.contacts {
+	float: right;
+}
+
+.socials-list {
+	margin: 0;
+	margin-left: -8px;
+}
+
+.socials-list__item {
+	margin: 0px 8px;
+	width: 26px;
+	height: 26px;
+}
+
+.socials-list__link {
+	display: block;
+	width: 26px;
+	height: 26px;
+	text-indent: 9999px;
+}
+
+.contacts__address, .contacts__phone {
+	display: inline-block;
+}
+
+.contacts__address {
+	max-width: $width/4;
+	margin-right: 85px;
+
+	&:before {
+		@include sprite($icons_map, map_pin);
+		content: "";
+		display: inline-block;
+		margin-right: 8px;
+	}
+}
+
+.contacts__phone {
+	max-width: $width/4;
+}
+
+.contacts__phone__link {
+	font-family: $main_font_semibold;
+	font-size: 18px;
+
+	&:before {
+		@include sprite($icons_map, phone);
+		content: "";
+		display: inline-block;
+		margin-right: 8px;	
+	}
+}
+
+.logo-container {
+	float: left;
+	width: 237px;
+	height: 35px;
+}
+
+.search-form {
+	float: left;
+	margin-left: 55px;
+	position: relative;
+}
+
+.search-form__input-text {
+	height: 35px;
+	width: 367px;
+	border: 1px solid $border_color;
+	padding: 10px 18px;
+	font-family: $main_font_light;
+	@include box-sizing(border-box);
+	@include border-radius(3px);
+}
+
+.search-form__find-button {
+	width: 80px;
+	height: 35px;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	background-color: #ff6600;
+	color: #fff;
+	font-family: $main_font_semibold;
+	font-size: 16px;
+	@include border-top-right-radius(3px);
+	@include border-bottom-right-radius(3px);
+
+	&:hover {
+		background-color: lighten($orange, 10%);
+	}
+}
+
+.info-menu {
+	float: right;
+	margin-right: -14px;
+	padding: 8px 0px;
+}
+
+.info-menu__item {
+	margin: 0px 14px;
+}
+
+.info-menu__link {
+	font-family: $main_font_semibold;
+	font-size: 16px;
+	text-decoration: underline;	
+
+	&:hover {
+		color: $orange;
+	}
+}

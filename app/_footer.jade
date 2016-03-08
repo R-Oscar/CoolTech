@@ -1,0 +1,19 @@
+- var soc_items = {'fb': 'Facebook', 'vk': 'VKontakte', 'tw': 'Twitter'}
+- var footer_menu = ['Планшеты', 'Мобильные телефоны', 'Mp3 плееры', 'Персональные компьютеры', 'Ноутбуки', 'Аксессуары', 'Бытовая техника']
+
+footer.footer
+	.footer-top-container
+		.footer-logo-container
+			img(src="images/footer_logo.png", alt="COOLTECH").footer-logo
+		.footer-info-container
+			ul.footer-socials
+				each desc, item in soc_items
+					li(class="footer-socials__item socials-list__item-" + item + "_big")
+						a(href="#" class="footer-socials__link socials-list__item-" + item + "_big") #{desc}
+			ul.footer-menu
+				each item in footer_menu
+					li.footer-menu__item
+						a(href="#").footer-menu__link #{item}
+	.footer-bottom-container
+		.footer-copyright All rights reserved. 2015. No copy allowed
+.layout-footer

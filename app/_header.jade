@@ -1,0 +1,26 @@
+- var soc_items = {'fb': 'Facebook', 'vk': 'VKontakte', 'tw': 'Twitter'}
+- var info_menu = ['Карта проезда', 'История заказов', 'Корзина']
+header.header
+	.header-top
+		.header-top-container
+			.socials
+				ul.socials-list
+					each desc, item in soc_items
+						li(class="socials-list__item socials-list__item-" + item)
+							a(href="#").socials-list__link #{desc}
+			.contacts
+				.contacts__address ул. Маяковская 6, офис 17
+				.contacts__phone
+					a(href="tel://+79211231213").contacts__phone__link +7 (921) 123-12-13
+	.header-bottom
+		.header-bottom-container
+			.logo-container
+				img(src="images/logo.png" alt="COOLTECH")
+			.search-form
+				form(action="#")
+					input(type="text" placeholder="Что будем искать").search-form__input-text
+					button(type="submit").search-form__find-button Найти
+			ul.info-menu
+				each item in info_menu
+					li(class="info-menu__item")
+						a(href="#").info-menu__link #{item}

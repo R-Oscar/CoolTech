@@ -1,0 +1,16 @@
+.important-info-container {
+	width: $width;
+	margin: 0 auto;
+	@extend %clearfix;
+}
+
+.important-info-text {
+	margin: -15px -18px;
+	p {
+		width: 530px;
+		display: inline-block;
+		color: #text_color;
+		text-align: justify;
+		margin: 15px 18px;
+	}
+}

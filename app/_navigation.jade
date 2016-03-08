@@ -1,0 +1,11 @@
+- var nav_items = ["Планшеты", "Мобильные телефоны", "Mp3 Плееры", "Персональные компьютеры", "Ноутбуки", "Акссесуары", "Бытовая техника"]
+
+nav.navigation
+	.navigation-container
+		ul.nav-list
+			each item in nav_items
+				li.nav-list__item
+					if item === "Мобильные телефоны"
+						div(class="nav-list__link nav-list__link__active") #{item}
+					else
+						a(href="#").nav-list__link #{item}

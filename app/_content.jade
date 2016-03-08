@@ -1,0 +1,22 @@
+- var sort = ['по цене', 'по популярности']
+
+section.content
+	.content-container
+		h1.h1 Мобильные телефоны
+		include _sidebar
+		.main-section
+			.main-section-header
+				.sort
+					label.sort__label Сортировать по
+						select.sort__select
+							each item in sort
+								option(value="").sort__item #{item}
+				.page-view
+					.page-view__label Вид каталога
+					ul.page-view-buttons
+						li.page-view-buttons__button
+							button(class="page-view__button page-view__table")
+						li.page-view-buttons__button
+							button(class="page-view__button page-view__grid")
+						li.page-view-buttons__button
+							button(class="page-view__button page-view__lines")

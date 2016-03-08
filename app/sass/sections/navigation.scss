@@ -1,0 +1,40 @@
+.navigation {
+	background-color: $white;
+	border-bottom: 2px solid $border_gray;
+}
+
+.navigation-container {
+	width: $width;
+	margin: 0 auto;
+}
+
+.nav-list {
+	font-size: 0;
+	margin-left: 9px;
+}
+
+.nav-list__item {
+	// margin: 16px 0px;
+}
+
+.nav-list__link {
+	font-size: 16px;
+	display: block;
+	min-height: 52px;
+	box-sizing: border-box;
+	padding: 16px 12px;
+
+	&:hover {
+		background-color: $gray;
+	}
+}
+
+.nav-list__link__active {
+	background-color: $orange;
+	color: $white;
+	font-family: $main_font_semibold;
+
+	&:hover {
+		background-color: $orange;
+	}
+}

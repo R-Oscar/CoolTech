@@ -1,0 +1,8 @@
+- var breadcrumbs = ["Главная", "Каталог"]
+
+div.breadcrumbs
+	div.breadcrumbs-container
+		ul.breadcrumbs-list
+			each item in breadcrumbs
+				li.breadcrumbs-list__item
+					a(href="#").breadcrumbs-list__link #{item}

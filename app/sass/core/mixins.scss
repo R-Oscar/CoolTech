@@ -1,0 +1,27 @@
+@mixin sprite($map, $item) {
+	$sprite-image: sprite-file($map, $item);
+	$sprite-url: sprite-url($map);
+	$sprite-position: sprite-position($map, $item);
+
+	background: $sprite-url $sprite-position no-repeat;
+
+	width: image-width($sprite-image);
+	height: image-height($sprite-image);	
+}
+
+@mixin absolute-center() {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;	
+}
+
+%clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}

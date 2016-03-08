@@ -1,0 +1,72 @@
+// @include sticky-footer(220px, ".wrapper", ".layout_footer", ".footer");
+
+.footer {
+	margin-top: 30px;
+	padding-bottom: 6px;
+	background: url("../../images/footer_bg.png") center center;
+}
+
+.footer-top-container {
+	width: $width;
+	margin: 0 auto;
+	padding-top: 35px;
+	@extend %clearfix;	
+}
+
+.footer-bottom-container {
+	margin: 0 auto;
+	padding-top: 5px;
+	margin-top: 30px;
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid $ft_border_gray;
+}
+
+.footer-socials {
+	margin-left: -10px;
+}
+
+.footer-socials__item {
+	// text-indent: -9999px;
+	margin: 0 10px;
+}
+
+.footer-socials__link {
+	display: block;
+	text-indent: 9999px;
+}
+
+.footer-logo-container {
+	float: left;
+	margin-top: 40px;
+}
+
+.footer-info-container {
+	float: right;
+	width: 560px;
+	text-align: right;
+}
+
+.footer-logo {
+	width: 237px;
+	height: 35px;
+}
+
+.footer-menu__item {
+	margin: 10px 12px;
+}
+
+.footer-menu__link {
+	color: $background_color;
+	text-decoration: underline;
+
+	&:hover {
+		color: darken($background_color, 10%);
+		text-decoration: none;
+	}
+}
+
+.footer-copyright {
+	color: $background_color;
+	font-size: 12px;
+}

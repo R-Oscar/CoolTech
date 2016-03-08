@@ -1,0 +1,28 @@
+$sprite_spacing: 10px;
+
+$socials_map: sprite-map('socials/*.png', $spacing: $sprite_spacing);
+$socials_icon: vk, fb, tw, vk_big, fb_big, tw_big;
+
+$socials_hover_map: sprite-map('socials_hover/*.png', $spacing: $sprite_spacing);
+$socials_hover_icon: vk_hover, fb_hover, tw_hover, vk_big_hover, fb_big_hover, tw_big_hover;
+
+$icons_map: sprite-map('icons/*.png', $spacing: $sprite_spacing);
+$icons_icon: checked, list_arrow, map_pin, phone, radio_checked, radio_unchecked, slider_selector, star_checked, star_unchecked, unchecked, view_grid, view_list, view_table;
+
+@each $item in $socials_icon {
+	.socials-list__item-#{$item} {
+		@include sprite($socials_map, $item);
+	}
+
+	.socials-list__item-#{$item + ":hover"} {
+		@include sprite($socials_hover_map, $item + "_hover");
+	}
+}
+
+.contacts_address__icon {
+	@include sprite($icons_map, map_pin);
+}
+
+.contacts__phone__icon {
+	@include sprite($icons_map, map_pin);
+}
