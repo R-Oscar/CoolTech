@@ -7,7 +7,7 @@ $socials_hover_map: sprite-map('socials_hover/*.png', $spacing: $sprite_spacing)
 $socials_hover_icon: vk_hover, fb_hover, tw_hover, vk_big_hover, fb_big_hover, tw_big_hover;
 
 $icons_map: sprite-map('icons/*.png', $spacing: $sprite_spacing);
-$icons_icon: checked, list_arrow, map_pin, phone, radio_checked, radio_unchecked, slider_selector, star_checked, star_unchecked, unchecked, view_grid, view_list, view_table;
+$icons_icon: list_arrow, map_pin, phone, slider_selector, star_checked, star_unchecked;
 
 @each $item in $socials_icon {
 	.socials-list__item-#{$item} {

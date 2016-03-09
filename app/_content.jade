@@ -1,4 +1,5 @@
 - var sort = ['по цене', 'по популярности']
+- var sort_view = ['table', 'grid', 'list']
 
 section.content
 	.content-container
@@ -14,9 +15,9 @@ section.content
 				.page-view
 					.page-view__label Вид каталога
 					ul.page-view-buttons
-						li.page-view-buttons__button
-							button(class="page-view__button page-view__table")
-						li.page-view-buttons__button
-							button(class="page-view__button page-view__grid")
-						li.page-view-buttons__button
-							button(class="page-view__button page-view__lines")
+						each view in sort_view
+							li(class="page-view__item")
+								a(href="#" class="page-view__" + view).page-view__link
+
+			include _content_lines
+			include _content_table

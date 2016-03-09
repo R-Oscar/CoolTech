@@ -1,6 +1,7 @@
 .content-container {
 	width: $width;
 	margin: 0 auto;
+	overflow: hidden;
 	@extend %clearfix;
 }
 
@@ -11,7 +12,7 @@
 
 .main-section-header {
 	background-color: $light-blue;
-	border: 1px solid $border_gray;
+	border: 1px solid $border_color;
 	@extend %clearfix;
 	@include border-radius(4px);
 }
@@ -41,16 +42,54 @@
 	@extend .sort__label;
 }
 
-.page-view__button {
+.page-view__item {
 	display: inline-block;
 	vertical-align: middle;
-	height: 50px;
 	width: 50px;
-	border: 1px solid $border_gray;
+	height: 50px;
+	position: relative;
+	border-left: 1px solid $border_color;
+	@include box-sizing(border-box);
+}
+
+.page-view__link {
+	display: block;
+	width: 50px;
+	height: 50px;
 }
 
 .page-view-buttons {
 	display: inline-block;
 	vertical-align: middle;
 	font-size: 0;
+}
+
+%page-view__icon {
+	content: "";
+	display: block;
+	@include absolute-center();
+}
+
+$sprite_spacing: 60px;
+$sort_map: sprite-map('icons/sort/*.png', $spacing: $sprite_spacing);
+$sort_active_map: sprite-map('icons/sort_active/*.png', $spacing: $sprite_spacing);
+$sort_hover_map: sprite-map('icons/sort_hover/*.png', $spacing: $sprite_spacing);
+
+$icons: grid, list, table;
+
+@each $icon in $icons {
+	.page-view__#{$icon} {
+		&:after {
+			@extend %page-view__icon;
+			@include sprite($sort_map, $icon);
+		}
+
+		&:hover:after {
+			@include sprite($sort_hover_map, $icon + "_hover")
+		}
+	}
+
+	.page-view__#{$icon + "__active"} {
+		@include sprite($sort_active_map, $icon + "_active");
+	}
 }
