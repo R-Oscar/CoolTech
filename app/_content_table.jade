@@ -20,7 +20,7 @@ ul.products
 						div(class="products__rating-star products__rating-star__checked")
 					- for (var n = 0; n < (5 - products_list[3]); n++)
 						div(class="products__rating-star products__rating-star__unchecked")
-					.products__rating-num-container 4
+					.products__rating-num-container #{products_list[3]}
 			.products__right-col
 				.products__price #{products_list[4]}
 					i.rouble

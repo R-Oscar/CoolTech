@@ -1,0 +1,45 @@
+- var products_list = ["189238", "Samsung GT-I9301I GALAXY S 3", "Смартфон Samsung GT-I9301I GALAXY S 3 Ceramic White Моноблок, Micro-SIM, Android 4.4, 3G, Bluetooth 4.0, EDGE, GPRS, WAP, Wi-Fi, Количество ядер процессора 4, Частота процессора 1400 МГц...", "4", "11 290", true]
+
+-
+	var products_info = {
+		"Тип SIM-карты": "Micro-SIM",
+		"Количество SIM-карт": "1",
+		"Цвет": "Белый",
+		"ОС": "Android",
+		"Связь 3G": "Есть",
+		"4G (LTE)": "Нет",
+		"GPS-модуль": "Есть"
+	}
+
+ul.products
+	- for (var i = 0; i < 9; i++)
+		li.products__item
+			.products__top-container
+				.products__main-image
+					img(src="images/content/shop_03.png", alt="" + products_list[1]).products__image-center
+				.products__thumbnails
+					- for (var j = 0; j < 3; j++)
+						.products__thumbnail
+				.products__name-container
+					h3.h3 #{products_list[1]}
+			table.products__info
+				each value, key in products_info
+					tr.products__info-row
+						td.products__info-field #{key}
+						td.products__info-value #{value}
+			.products__rating
+				- for (var k = 0; k < products_list[3]; k++)
+					div(class="products__rating-star products__rating-star__checked")
+				- for (var n = 0; n < (5 - products_list[3]); n++)
+					div(class="products__rating-star products__rating-star__unchecked")
+				.products__rating-num-container #{products_list[3]}
+			.products__price-container
+				.products__price #{products_list[4]}
+					i.rouble
+			.products__bottom-container
+				.products__availability
+					if products_list[5]
+						.products__availability__yes В наличии
+					else
+						.products__availability__no Отсутствует
+				button.products__order-button В корзину

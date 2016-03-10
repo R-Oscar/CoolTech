@@ -1,0 +1,14 @@
+ul.page-list
+	div(class="page-list__item page-list__item__prev")
+		a(href="#").page-list__link
+			.page-list__arrow
+				.page-list__arrow__top
+				.page-list__arrow__bottom
+	- for (var s = 0; s < 3; s++)
+		li.page-list__item
+			a(href="#").page-list__link #{s + 1}
+	div(class="page-list__item page-list__item__next")
+		a(href="#").page-list__link
+			.page-list__arrow
+				div(class="page-list__arrow__top page-list__arrow-next__top")
+				div(class="page-list__arrow__bottom page-list__arrow_prev__bottom")

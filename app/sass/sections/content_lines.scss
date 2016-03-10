@@ -1,0 +1,34 @@
+.products__id {
+	text-align: left;
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.products__name {
+	display: inline-block;
+	vertical-align: bottom;
+	margin-left: 10px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 275px;
+}
+
+.products__price {
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.products__availability {
+	display: inline-block;
+	vertical-align: super;
+	margin-left: 25px;
+	margin-top: 0;
+}
+
+.products__order-button {
+	display: inline-block;
+	vertical-align: bottom;
+	margin-top: 0;
+	margin-left: 20px;
+}
