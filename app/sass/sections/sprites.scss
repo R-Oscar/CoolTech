@@ -18,11 +18,3 @@ $icons_icon: list_arrow, map_pin, phone, slider_selector, star_checked, star_unc
 		@include sprite($socials_hover_map, $item + "_hover");
 	}
 }
-
-.contacts_address__icon {
-	@include sprite($icons_map, map_pin);
-}
-
-.contacts__phone__icon {
-	@include sprite($icons_map, map_pin);
-}

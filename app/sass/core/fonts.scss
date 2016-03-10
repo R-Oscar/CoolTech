@@ -127,3 +127,27 @@
 	normal,
 	italic
 );
+
+@include font-face(
+	'Rouble',
+	font-files(
+		'rouble-webfont.svg',
+		'rouble-webfont.woff',
+		'rouble-webfont.woff2',
+		'rouble-webfont.ttf'
+	),
+	'rouble-webfont.eot',
+	normal,
+	normal
+);
+
+.rouble {
+	font-family: 'Rouble';
+	
+	&:after {
+		content: 'o';
+		font-style: inherit;
+		font-size: inherit;
+		line-height: inherit;
+	}
+}
