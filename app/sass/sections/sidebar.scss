@@ -37,10 +37,7 @@
 
 .filter__item {
 	@extend .phone-line__item;
-}
-
-.filter__item-container {
-	margin: 15px 30px;
+	padding: 16px 30px;
 }
 
 .filter__item-radio {
@@ -172,12 +169,16 @@
 }
 
 .filter__price {
-	margin-left: -32px;
+	@extend %clearfix;
 }
 
 .filter__price-label {
 	color: $text_color;
-	margin-left: 32px;
+	float: left;
+
+	&:last-child {
+		float: right;
+	}
 }
 
 .filter__price-input {
@@ -191,6 +192,40 @@
 	padding: 5px 8px;
 	@include box-sizing(border-box);
 	@include border-radius(3px);
+}
+
+.filter__slider {
+	margin-top: 18px;
+}
+
+.ui-widget-content {
+	background-color: $border_color;
+	border: none;
+}
+
+.ui-widget-header {
+	background-color: $orange;
+}
+
+.ui-slider-horizontal {
+	height: 3px;
+	margin-bottom: 15px;
+}
+
+.ui-slider .ui-slider-handle {
+	border: none;
+	cursor: pointer;
+	top: 0;
+	margin-left: -4px;
+	@include sprite($icons_map, slider_selector);
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.ui-state-active {
+	outline: none;
 }
 
 .filter__color-list {

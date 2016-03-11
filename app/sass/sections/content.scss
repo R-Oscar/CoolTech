@@ -26,9 +26,36 @@
 	color: $sort_color;
 }
 
-.sort__select {
+%sort__arrow {
+	border: none !important;
+	width: 8px !important;
+	height: 8px !important;
+	border-bottom: 1px solid $border_gray !important;
+	border-right: 1px solid $border_gray !important;
+	top: 0 !important;
+	bottom: 0 !important;
+	right: 0 !important;
+	left: 0 !important;
+	margin: auto !important;	
+}
+
+.select2-container {
+	width: 145px !important;
 	border: 1px solid $border_gray;
-	@include border-radius(3px);
+
+	.select2-selection__arrow {
+		b {
+			@extend %sort__arrow;
+			@include rotate(45deg);
+		}
+	}
+
+	&.select2-container-open {
+		b {
+			@extend %sort__arrow;
+			@include rotate(135deg);
+		}
+	}
 }
 
 .page-view {

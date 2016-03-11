@@ -8,6 +8,7 @@ var es = require('event-stream');
 var bowerFiles = require('main-bower-files');
 var browserSync = require('browser-sync');
 var del = require('del');
+var runSequence = require('run-sequence');
 
 // -----------------------------------
 // ------------- PATHS ---------------
@@ -18,8 +19,9 @@ var DEV_FOLDER = 'dist.dev';
 var sourcePaths = {
 	fonts: 'app/fonts/**/*',
 	images: 'app/images/**/*',
-	pages: 'app/**/*.jade',
-	script: 'app/js/**/*.js',
+	pages: ['app/**/*.jade', '!app/**/_*.jade'],
+	all_pages: 'app/**/*.jade',
+	scripts: 'app/js/**/*.js',
 	styles: 'app/sass/**/*.scss',
 	stylesFolder: 'app/sass/'
 }
@@ -49,7 +51,7 @@ pipes.assembleFonts = function() {
 
 pipes.assembleJS = function() {
 	console.log('Assembling app.js...');
-	return gulp.src(sourcePaths.script)
+	return gulp.src(sourcePaths.scripts)
 				.pipe(plugins.concat('app.js'))
 				.pipe(gulp.dest(devPaths.scriptsFolder));
 }
@@ -63,7 +65,7 @@ pipes.assembleVendorJS = function() {
 
 pipes.assembleVendorCSS = function() {
 	console.log("Assembling vendor.css...");
-	return gulp.src(bowerFiles("**/*.css"))
+	return gulp.src(bowerFiles("**/*.css").concat(["app/bower/jquery-ui/themes/base/jquery-ui.css", "app/bower/select2/dist/css/select2.css"]))
 				.pipe(plugins.concat('vendor.css'))
 				.pipe(gulp.dest(devPaths.stylesFolder));
 }
@@ -104,7 +106,8 @@ pipes.compileJADE = function() {
 pipes.injectDev = function() {
 	console.log("Injecting dependencies...");
 	return es.merge(pipes.assembleFonts(), pipes.compileJADE()
-				.pipe(plugins.inject(es.merge(pipes.assembleJS(), pipes.assembleVendorJS()), {read: false, relative: true}))
+				.pipe(plugins.inject(pipes.assembleVendorJS(), {read: false, relative: true, name: 'vendor'}))
+				.pipe(plugins.inject(pipes.assembleJS(), {read: false, relative: true, name: 'custom'}))
 				.pipe(plugins.inject(es.merge(pipes.compileSASS(), pipes.assembleVendorCSS()), {read: false, relative: true}))
 				.pipe(gulp.dest(DEV_FOLDER)));
 }
@@ -116,8 +119,9 @@ pipes.devServer = function() {
 		  baseDir: DEV_FOLDER
 		}
 	});
+	gulp.watch(sourcePaths.scripts, pipes.assembleJS);
 	gulp.watch(sourcePaths.styles, pipes.compileSASS);
-	gulp.watch(sourcePaths.pages, pipes.injectDev);
+	gulp.watch(sourcePaths.all_pages, pipes.injectDev);
 	gulp.watch([
 		devPaths.pages,
 		devPaths.scripts,
@@ -135,12 +139,19 @@ gulp.task('vendorjs', pipes.assembleVendorJS);
 gulp.task('vendorcss', pipes.assembleVendorCSS);
 gulp.task('sass', pipes.compileSASS);
 gulp.task('jade', pipes.compileJADE);
-
-gulp.task('dev-prepare', ['clean-dev'], pipes.assembleImages);
-gulp.task('dev', ['dev-prepare'], pipes.injectDev);
+gulp.task('inject', pipes.injectDev);
+gulp.task('server', pipes.devServer);
+gulp.task('images', pipes.assembleImages);
 
 gulp.task('clean-dev', function() {
 	return del(DEV_FOLDER);
 });
 
-gulp.task('default', ['dev'], pipes.devServer);
+gulp.task('default', function() {
+	runSequence(
+		'clean-dev',
+		['js', 'vendorjs', 'images'],
+		'inject',
+		'server'
+	);
+});
