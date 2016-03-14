@@ -66,6 +66,7 @@
 }
 
 .products__rating__grid {
+	@extend .products__rating;
 	text-align: center;
 }
 
@@ -75,11 +76,13 @@
 }
 
 .products__order-button__grid {
+	@extend .products__order-button;
 	margin-top: 0;
 	margin-left: 11px;
 }
 
 .products__availability__grid {
+	@extend .products__availability;
 	margin-left: 7px;
 }
 
