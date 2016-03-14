@@ -9,9 +9,9 @@ section.content
 			.main-section-header
 				.sort
 					label.sort__label Сортировать по
-						select.sort__select
-							each item in sort
-								option(value="").sort__item #{item}
+					select.sort__select
+						each item in sort
+							option(value="").sort__item #{item}
 				.page-view
 					.page-view__label Вид каталога
 					ul.page-view-buttons
@@ -19,7 +19,7 @@ section.content
 							li(class="page-view__item")
 								a(href="#" class="page-view__" + view).page-view__link
 
-			//- include _content_table
+			include _content_table
 			//- include _content_lines
-			include _content_grid
+			//- include _content_grid
 			include _content__page-list

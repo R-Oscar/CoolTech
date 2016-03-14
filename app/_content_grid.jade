@@ -11,9 +11,9 @@
 		"GPS-модуль": "Есть"
 	}
 
-ul.products
+ul.products__grid
 	- for (var i = 0; i < 9; i++)
-		li.products__item
+		li.products__item__grid
 			.products__top-container
 				.products__main-image
 					img(src="images/content/shop_03.png", alt="" + products_list[1]).products__image-center
@@ -27,14 +27,14 @@ ul.products
 					tr.products__info-row
 						td.products__info-field #{key}
 						td.products__info-value #{value}
-			div(data-rating="4").products__rating
+			div(data-rating=products_list[3]).products__rating__grid
 			.products__price-container
 				.products__price #{products_list[4]}
 					i.rouble
 			.products__bottom-container
-				.products__availability
+				.products__availability__grid
 					if products_list[5]
 						.products__availability__yes В наличии
 					else
 						.products__availability__no Отсутствует
-				button.products__order-button В корзину
+				button.products__order-button__grid В корзину

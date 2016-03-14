@@ -1,10 +1,12 @@
-.products {
+.products__grid {
+	@extend .products;
 	background-color: inherit;
 	border: none;
 	margin-right: -16px;
 }
 
-.products__item {
+.products__item__grid {
+	@extend .products__item;
 	display: inline-block;
 	width: 235px;
 	padding: 20px 13px;
@@ -24,9 +26,9 @@
 	padding: 0 35px;
 }
 
-.h2 {
-	color: $black;
-}
+// .h2 {
+// 	color: $black;
+// }
 
 .products__name-container {
 	text-align: center;
@@ -60,21 +62,24 @@
 
 .products__price-container {
 	width: 100%;
-}
-
-.products__rating, .products__price-container {
 	text-align: center;
 }
 
-.products__order-button, .products__availability {
+.products__rating__grid {
+	text-align: center;
+}
+
+.products__order-button__grid, .products__availability__grid {
+	display: inline-block;
 	vertical-align: middle;
 }
 
-.products__order-button {
+.products__order-button__grid {
+	margin-top: 0;
 	margin-left: 11px;
 }
 
-.products__availability {
+.products__availability__grid {
 	margin-left: 7px;
 }
 

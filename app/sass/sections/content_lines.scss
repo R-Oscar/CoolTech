@@ -1,10 +1,11 @@
-.products__id {
+.products__id__list {
+	@extend .products__id;
 	text-align: left;
 	display: inline-block;
 	vertical-align: bottom;
 }
 
-.products__name {
+.products__name__list {
 	display: inline-block;
 	vertical-align: bottom;
 	margin-left: 10px;
@@ -14,19 +15,22 @@
 	width: 275px;
 }
 
-.products__price {
+.products__price__list {
+	@extend .products__price;
 	display: inline-block;
 	vertical-align: bottom;
 }
 
-.products__availability {
+.products__availability__list {
+	@extend .products__availability;
 	display: inline-block;
 	vertical-align: super;
 	margin-left: 25px;
 	margin-top: 0;
 }
 
-.products__order-button {
+.products__order-button__list {
+	@extend .products__order-button;
 	display: inline-block;
 	vertical-align: bottom;
 	margin-top: 0;
